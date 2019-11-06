@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stripe iDEAL Elements complete</title>
+    <meta name="description" content="A demo of Stripe Payment Intents" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+
+  <body>
+    <div class="sr-root">
+      <div class="sr-main">
+        <div class="sr-result">
+          <p>Payment succeeded<br /></p>
+          <pre>
+            <code></code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <script>
+      var urlParams = new URLSearchParams(window.location.search);
+      var paymentIntentId = urlParams.get("payment_intent");
+      if (paymentIntentId) {
+        fetch("/payment-intent?paymentIntentId=" + paymentIntentId)
+          .then(function(result) {
+            return result.json();
+          })
+          .then(function(paymentIntent) {
+            if (paymentIntent.status !== "succeeded") {
+              document.querySelector(".sr-result p").textContent =
+                "Payment did not succeed";
+            }
+            var paymentIntentJson = JSON.stringify(paymentIntent, null, 2);
+            document.querySelector("pre").textContent = paymentIntentJson;
+            setTimeout(function() {
+              document.querySelector(".sr-result").classList.add("expand");
+            }, 200);
+          })
+          .catch(function(err) {
+            console.log("Error when fetching PaymentIntent", err);
+          });
+      }
+    </script>
+  </body>
+</html>
