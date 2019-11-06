@@ -1,7 +1,15 @@
 # Paying with iDEAL or Cards on the web 
-The [Payment Intents API](https://stripe.com/docs/api/payment_intents) makes it simple to accept multiple payment methods on the web.
+iDEAL is one of the most popular ways to pay in the Netherlands. It requires the customer to be redirected to their bank to authenticate the purchase.
 
-Learn how to build a payment page that can accept both iDEAL and card payments.
+The [Payment Intents API](https://stripe.com/docs/api/payment_intents) makes it simple to accept multiple payment methods on the web. You can build a payment form that easily handles redirect-based payment methods like iDEAL alongside simpler flows like cards. 
+
+This sample shows how to:
+
+* 🏦💳 Accept iDEAL and card payments
+* 👂 Set up a webhook to listen for events
+* 💁‍ Handle requests for card authentication and bank redirects
+
+<img src="./web-elements-ideal-payment.gif" alt="Accepting iDEAL on the web" align="center">
 
 **Demo**
 
@@ -12,9 +20,6 @@ The demo is running in test mode -- use `4242424242424242` as a test card number
 Use the `4000000000003220` test card number to trigger a 3D Secure challenge flow.
 
 Read more about testing on Stripe at https://stripe.com/docs/testing.
-
-<img src="./web-elements-ideal-payment.gif" alt="Accepting iDEAL on the web" align="center">
-
 
 ## How to run locally
 
