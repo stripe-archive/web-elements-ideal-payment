@@ -106,3 +106,4 @@ A: We are always looking for new sample ideas, please email dev-samples@stripe.c
 
 ## Author(s)
 [@adreyfus-stripe](https://twitter.com/adrind)
+[@csabol-stripe](https://github.com/csabol-stripe)
