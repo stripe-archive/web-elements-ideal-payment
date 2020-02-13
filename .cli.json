@@ -1,0 +1,12 @@
+{
+    "name": "web-elements-ideal-payment",
+    "configureDotEnv": true,
+    "integrations": [
+      {
+        "name": "main",
+        "clients": ["web", "ios"],
+        "servers": ["java", "node", "php", "python", "ruby"]
+      }
+    ]
+  }
+  
