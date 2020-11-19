@@ -201,8 +201,8 @@ class CheckoutViewController: UIViewController {
                                                                          metadata: nil)
         paymentIntentParams.returnURL = "ideal-example://stripe-redirect"
 
-        STPPaymentHandler.shared().confirmPayment(withParams: paymentIntentParams,
-                                                  authenticationContext: self)
+        STPPaymentHandler.shared().confirmPayment(paymentIntentParams,
+                                                    with: self)
         { (handlerStatus, paymentIntent, error) in
             switch handlerStatus {
             case .succeeded:

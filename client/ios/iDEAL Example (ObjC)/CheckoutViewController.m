@@ -8,7 +8,7 @@
 
 #import "CheckoutViewController.h"
 
-#import <Stripe/Stripe.h>
+@import Stripe;
 
 /**
 * To run this app, you'll need to first run the sample server locally.
@@ -178,7 +178,7 @@ NS_INLINE NSString * DisplayNameForiDEALBank(IDEALBank bank) {
                 self.paymentIntentClientSecret = json[@"clientSecret"];
                 NSString *stripePublishableKey = json[@"publishableKey"];
                 // Configure the SDK with your Stripe publishable key so that it can make requests to the Stripe API
-                [Stripe setDefaultPublishableKey:stripePublishableKey];
+                [StripeAPI setDefaultPublishableKey:stripePublishableKey];
             }
         } else {
             [self displayAlertWithTitle:@"Error loading page" message:error.localizedDescription ?: @"" restartDemo:NO];
